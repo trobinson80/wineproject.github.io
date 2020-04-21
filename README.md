@@ -1,9 +1,9 @@
 
-## No Wine Left Behind
+# No Wine Left Behind
 
-### By Alex Karwoski, August Stapf, Thomas Robinson, and Michael Bick
+## By Alex Karwoski, August Stapf, Thomas Robinson, and Michael Bick
 
-**Introduction**
+### Introduction
 
 While seeing relatives out in Oregon, one of our initial group members, Michael Leon, went around visiting vineyards and wineries in the Oregon countryside with his uncle. His uncle taught him the ins and outs of wine tasting, and what makes certain wines different from others in taste, quality, and other aspects. As we were looking around at public datasets to do our project, we came across the wine dataset, and after we heard his story, we were curious if wine quality could be determined based on the chemical components of the wine, as opposed to just a connoisseur's taste. All of our group members showed an interest in the topic, and we were all in to do our project on wine.
  
@@ -124,6 +124,8 @@ Compare accuracy of models
 Create Regression models within classes
 Compare to original results
 """
+
+### PCA
 
 ```python
 from __future__ import absolute_import
@@ -609,6 +611,8 @@ rmse_score = rmse(y_pred, y_test)
 print("rmse score of White Wine without PCA",rmse_score)
 ```
 
+### K Means
+
 **Classifying Wines**
 
 ```python
@@ -678,7 +682,7 @@ find_optimal_num_clusters()
 show picture of data
 
 
-**Trees**
+### Trees
 
 ```python
 import numpy as np
