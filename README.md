@@ -391,15 +391,15 @@ y_test_pred = RidgeReg.predict(X_redCV, weight)
 test_rmse = rmse(y_test_pred, Y_redCV)
 print('test rmse: %.4f' % test_rmse)
 ```
-> lambda: 0.00 error: 0.646135
-> lambda: 0.10 error: 0.646210
-> lambda: 1.00 error: 0.648945
-> lambda: 5.00 error: 0.654520
-> lambda: 10.00 error: 0.657310
-> lambda: 100.00 error: 0.677917
-> lambda: 1000.00 error: 0.704367
-> best_lambda for Red Wine: 0.00
-> test rmse: 0.6585
+> lambda: 0.00 error: 0.646135 <br/>
+> lambda: 0.10 error: 0.646210 <br/>
+> lambda: 1.00 error: 0.648945 <br/>
+> lambda: 5.00 error: 0.654520 <br/>
+> lambda: 10.00 error: 0.657310 <br/>
+> lambda: 100.00 error: 0.677917 <br/>
+> lambda: 1000.00 error: 0.704367 <br/>
+> best_lambda for Red Wine: 0.00 <br/>
+> test rmse: 0.6585 <br/>
 
 ```python
 def cross_validation(X, y, kfold, c_lambda):
@@ -434,15 +434,15 @@ y_test_pred = RidgeReg.predict(X_whiteCV, weight)
 test_rmse = rmse(y_test_pred, Y_whiteCV)
 print('test rmse: %.4f' % test_rmse)
 ```
-> lambda: 0.00 error: 0.753389
-> lambda: 0.10 error: 0.753396
-> lambda: 1.00 error: 0.753554
-> lambda: 5.00 error: 0.754501
-> lambda: 10.00 error: 0.755552
-> lambda: 100.00 error: 0.767648
-> lambda: 1000.00 error: 0.786491
-> best_lambda for White Wine: 0.00
-> test rmse: 0.7577
+> lambda: 0.00 error: 0.753389 <br/>
+> lambda: 0.10 error: 0.753396 <br/>
+> lambda: 1.00 error: 0.753554 <br/>
+> lambda: 5.00 error: 0.754501 <br/>
+> lambda: 10.00 error: 0.755552 <br/>
+> lambda: 100.00 error: 0.767648 <br/>
+> lambda: 1000.00 error: 0.786491 <br/>
+> best_lambda for White Wine: 0.00 <br/>
+> test rmse: 0.7577 <br/>
 
 
 **PCA For every Group Red Wine**
