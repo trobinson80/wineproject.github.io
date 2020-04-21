@@ -445,7 +445,7 @@ print('test rmse: %.4f' % test_rmse)
 > test rmse: 0.7577 <br/>
 
 
-**PCA For every Group Red Wine**
+**PCA For every Group - Red Wine**
 
 ```python
 X_red_ratings = [[]]
@@ -485,9 +485,40 @@ for i in range(10):
     avg += rmse_score
 print("Average rmse: ", avg/i)
 ```
-show picture of data
+>(10,) <br/>
+>data shape with PCA  (10, 5)<br/>
+>Number of independent features  10<br/>
+>Number of intrinsic components  5<br/>
+>rmse of Red Wine score with PCA for group:  4 [0.31218574]<br/>
+>(11,)<br/>
+>data shape with PCA  (53, 6)<br/>
+>Number of independent features  11<br/>
+>Number of intrinsic components  6<br/>
+>rmse of Red Wine score with PCA for group:  5 [0.18003766]<br/>
+>(11,)<br/>
+>data shape with PCA  (681, 5)<br/>
+>Number of independent features  11<br/>
+>Number of intrinsic components  5<br/>
+>rmse of Red Wine score with PCA for group:  6 [0.43029051]<br/>
+>(11,)<br/>
+>data shape with PCA  (638, 6)<br/>
+>Number of independent features  11<br/>
+>Number of intrinsic components  6<br/>
+>rmse of Red Wine score with PCA for group:  7 [0.17939916]<br/>
+>(11,)<br/>
+>data shape with PCA  (199, 5)<br/>
+>Number of independent features  11<br/>
+>Number of intrinsic components  5<br/>
+>rmse of Red Wine score with PCA for group:  8 [0.40271934]<br/>
+>(11,)<br/>
+>data shape with PCA  (18, 5)<br/>
+>Number of independent features  11<br/>
+>Number of intrinsic components  5<br/>
+>rmse of Red Wine score with PCA for group:  9 [0.69035991]<br/>
+><br/>
+>Average rmse:  [0.7776519]<br/>
 
-**PCA For every Group White Wine**
+**PCA For every Group - White Wine**
 
 ```python
 X_white_ratings = [[]]
@@ -529,7 +560,38 @@ for i in range(10):
     avg += rmse_score
 print("Average rmse: ", avg/l)
 ```
-picture of data
+>(10,) <br/>
+>data shape with PCA  (10, 4)<br/>
+>Number of independent features  10<br/>
+>Number of intrinsic components  4<br/>
+>rmse of White Wine score with PCA for group:  4 [1.34738746]<br/>
+>(11,)<br/>
+>data shape with PCA  (53, 4)<br/>
+>Number of independent features  11<br/>
+>Number of intrinsic components  4<br/>
+>rmse of White Wine score with PCA for group:  5 [1.34942091]<br/>
+>(11,)<br/>
+>data shape with PCA  (681, 4)<br/>
+>Number of independent features  11<br/>
+>Number of intrinsic components  4<br/>
+>rmse of White Wine score with PCA for group:  6 [0.97046762]<br/>
+>(11,)<br/>
+>data shape with PCA  (638, 4)<br/>
+>Number of independent features  11<br/>
+>Number of intrinsic components  4<br/>
+>rmse of White Wine score with PCA for group:  7 [0.77471096]<br/>
+>(11,)<br/>
+>data shape with PCA  (199, 4)<br/>
+>Number of independent features  11<br/>
+>Number of intrinsic components  4<br/>
+>rmse of White Wine score with PCA for group:  8 [0.92795544]<br/>
+>(11,)<br/>
+>data shape with PCA  (18, 4)<br/>
+>Number of independent features  11<br/>
+>Number of intrinsic components  4<br/>
+>rmse of White Wine score with PCA for group:  9 [1.76688812]<br/>
+> <br/>
+>Average rmse:  [1.18947175]<br/>
 
 ```python
 #load the dataset 
@@ -554,7 +616,11 @@ rmse_score = rmse(y_pred, y_test)
 print("rmse of Red Wine score with PCA",rmse_score)
 ```
 
-data
+>(11,) <br/>
+>data shape with PCA  (1599, 6)<br/>
+>Number of independent features  11<br/>
+>Number of intrinsic components  6<br/>
+>rmse of Red Wine score with PCA [0.82285788]<br/>
 
 
 ```python
@@ -572,7 +638,8 @@ print(X_train.shape)
 rmse_score = rmse(y_pred, y_test)
 print("rmse score of Red Wine without PCA",rmse_score)
 ```
-show data
+>(1279, 11) <br/>
+>rmse score of Red Wine without PCA [0.65692807] <br/>
 
 ```python
 #load the dataset 
@@ -594,7 +661,11 @@ y_pred=apply_regression(X_train,y_train,X_test)
 rmse_score = rmse(y_pred, y_test)
 print("rmse of White Wine score with PCA",rmse_score)
 ```
-show data
+>(11,) <br/>
+>data shape with PCA  (4898, 4)<br/>
+>Number of independent features  11<br/>
+>Number of intrinsic components  4<br/>
+>rmse of White Wine score with PCA [0.83946337]<br/>
 
 ```python
 #Ridge regression without PCA
@@ -611,6 +682,9 @@ print(X_train.shape)
 rmse_score = rmse(y_pred, y_test)
 print("rmse score of White Wine without PCA",rmse_score)
 ```
+
+>(3918, 11) <br/>
+>rmse score of White Wine without PCA [0.71521091] <br/>
 
 We decided to use dimension reduction to clean up the data and reduce the number of random variables in consideration. We performed principal component analysis(PCA) on the features on both types of wine and obtained the retained variance normalized to total variance in order to select only the variables that contribute the most to the total variance. For red wine, PCA was able to select 4 of the 11 components in order to retain 99% of the total variance of that data set. For white wine, PCA narrowed down the components to 6 from 11 while maintaining 99% of the variance in this data set. With this information, we know we can later on build a simpler, more efficient model(linear regression, decision tree, etc.) with less data. 
 
