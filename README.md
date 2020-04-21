@@ -88,35 +88,39 @@ Below is an example of what the data for the physiochemical properties of the wi
 red_dataframe = pd.read_csv('winequality-red.csv', sep=';')
 red_dataframe.head()
 
-"""**Red Wine Information and Correlation Matrix**
+#Red Wine Information and Correlation Matrix
 
 Here we have information on each of the individual attributes of the red wines. The following information shows us the Averge, Standard Deviation, Min, Max, etc. Below that is the Correlation of each attribute to each other attribute
 """
-
+```python
 red_dataframe = pd.read_csv('winequality-red.csv', sep=';')
 red_dataframe.drop('quality', axis=1).describe()
 
 correlation = red_dataframe.corr()
 fig, ax = plt.subplots(figsize=(15,15))
 sns.heatmap(correlation, xticklabels=correlation.columns, yticklabels=correlation.columns, cmap='coolwarm_r', vmin=-1, vmax=1, annot=True, ax=ax)
+```
+put the info on red dataframe here
 
-"""**White Wine Information and Correlation Matrix**
+#White Wine Information and Correlation Matrix
 
 Here we have information on each of the individual attributes of the white wines. The following information shows us the Averge, Standard Deviation, Min, Max, etc. Below that is the Correlation of each attribute to each other attribute
-"""
 
+```python
 white_dataframe = pd.read_csv('winequality-white.csv', sep=';')
 white_dataframe.drop('quality', axis=1).describe()
 
 correlation = white_dataframe.corr()
 fig, ax = plt.subplots(figsize=(15,15))
 sns.heatmap(correlation, xticklabels=correlation.columns, yticklabels=correlation.columns,cmap='coolwarm_r', vmin=-1, vmax=1, annot=True, ax=ax)
+```
+put info on white dataframe here
 
-"""**Combined Wine Information and Correlation Matrix**
+#Combined Wine Information and Correlation Matrix
 
 Here we have information on each of the individual attributes of the combined red and white wines. The following information shows us the Averge, Standard Deviation, Min, Max, etc. Below that is the Correlation of each attribute to each other attribute
-"""
 
+```python
 both = [red_dataframe, white_dataframe]
 both_dataframe = pd.concat(both)
 
@@ -125,6 +129,7 @@ both_dataframe.drop('quality', axis=1).describe()
 correlation = both_dataframe.corr()
 fig, ax = plt.subplots(figsize=(15,15))
 sns.heatmap(correlation, xticklabels=correlation.columns, yticklabels=correlation.columns,cmap='coolwarm_r', vmin=-1, vmax=1, annot=True, ax=ax)
+```
 
 """Steps:
 Distribution:
@@ -150,12 +155,13 @@ Create Regression models within classes
 Compare to original results
 """
 
-# Commented out IPython magic to ensure Python compatibility.
+```python
 from __future__ import absolute_import
 from __future__ import print_function
 from __future__ import division
 
 # %matplotlib inline  
+```
 
 import sys
 from math import *
