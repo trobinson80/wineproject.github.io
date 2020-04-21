@@ -738,7 +738,7 @@ def visualise(X, C, K):#Visualization of clustering. You don't need to change th
     pass
 visualise(X_red, kmeans.labels_,k)
 ```
-show data
+![](clusters.png)
 
 ```
 def find_optimal_num_clusters():
@@ -760,7 +760,7 @@ def find_optimal_num_clusters():
     plt.show()
 find_optimal_num_clusters()
 ```
-show picture of data
+![](graph_k.png)
 
 In order for us to classify the wine into different groups, we had to create these different groups while still considering the quality rating. We decided to classify the wines into 3 groups: Bad Wine (0-4), Good Wine (5-6), and Great Wine (7+). We then applied the k-means clustering algorithm. 
  
