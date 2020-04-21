@@ -37,9 +37,11 @@ The dataset contains the wine attributes: Fixed Acidity, Volatile Acidity, Citri
 
 Below is an example of what the data for the physiochemical properties of the wine looks like. The first 11 columns are the separate chemical properties that we will be analyzing to see how they relate to the overall wine which is in the last column.
 """
-
+```python
 red_dataframe = pd.read_csv('winequality-red.csv', sep=';')
 red_dataframe.head()
+```
+!
 
 **Red Wine Information and Correlation Matrix**
 
