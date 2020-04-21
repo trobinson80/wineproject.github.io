@@ -868,7 +868,8 @@ y_train = np.array(data_train)[:,-1]
 X_test = np.array(data_test)[:,:-2]
 y_test = np.array(data_test)[:,-1]
 ```
-show data
+data
+
 
 ```python
 # Initializing a decision tree.
@@ -879,7 +880,110 @@ dt = MyDecisionTree(max_depth)
 print("fitting the decision tree")
 dt.fit(X_train, y_train, 0)
 ```
-show data
+
+
+
+```
+fitting the decision tree
+10
+10
+7
+8
+8
+10
+1
+2
+10
+8
+2
+10
+9
+9
+10
+1
+{'isLeaf': False,
+ 'is_categorical': True,
+ 'leftTree': {'class': 0.0, 'isLeaf': True},
+ 'rightTree': {'isLeaf': False,
+  'is_categorical': True,
+  'leftTree': {'isLeaf': False,
+   'is_categorical': True,
+   'leftTree': {'isLeaf': False,
+    'is_categorical': True,
+    'leftTree': {'class': 1.0, 'isLeaf': True},
+    'rightTree': {'isLeaf': False,
+     'is_categorical': True,
+     'leftTree': {'class': 1.0, 'isLeaf': True},
+     'rightTree': {'class': 0.0, 'isLeaf': True},
+     'split_attribute': 8,
+     'split_value': 3.38},
+    'split_attribute': 8,
+    'split_value': 3.36},
+   'rightTree': {'class': 0.0, 'isLeaf': True},
+   'split_attribute': 7,
+   'split_value': 0.9968},
+  'rightTree': {'isLeaf': False,
+   'is_categorical': True,
+   'leftTree': {'class': 0.0, 'isLeaf': True},
+   'rightTree': {'isLeaf': False,
+    'is_categorical': True,
+    'leftTree': {'isLeaf': False,
+     'is_categorical': True,
+     'leftTree': {'class': 0.0, 'isLeaf': True},
+     'rightTree': {'isLeaf': False,
+      'is_categorical': True,
+      'leftTree': {'class': 0.0, 'isLeaf': True},
+      'rightTree': {'isLeaf': False,
+       'is_categorical': True,
+       'leftTree': {'class': 0.0, 'isLeaf': True},
+       'rightTree': {'class': 1.0, 'isLeaf': True},
+       'split_attribute': 8,
+       'split_value': 3.16},
+      'split_attribute': 10,
+      'split_value': 9.2},
+     'split_attribute': 2,
+     'split_value': 0.46},
+    'rightTree': {'isLeaf': False,
+     'is_categorical': True,
+     'leftTree': {'isLeaf': False,
+      'is_categorical': True,
+      'leftTree': {'class': 0.0, 'isLeaf': True},
+      'rightTree': {'isLeaf': False,
+       'is_categorical': True,
+       'leftTree': {'class': 0.0, 'isLeaf': True},
+       'rightTree': {'class': 1.0, 'isLeaf': True},
+       'split_attribute': 9,
+       'split_value': 0.8},
+      'split_attribute': 10,
+      'split_value': 9.1},
+     'rightTree': {'isLeaf': False,
+      'is_categorical': True,
+      'leftTree': {'isLeaf': False,
+       'is_categorical': True,
+       'leftTree': {'class': 0.0, 'isLeaf': True},
+       'rightTree': {'class': 1.0, 'isLeaf': True},
+       'split_attribute': 10,
+       'split_value': 11.1},
+      'rightTree': {'isLeaf': False,
+       'is_categorical': True,
+       'leftTree': {'class': 1.0, 'isLeaf': True},
+       'rightTree': {'class': 0.0, 'isLeaf': True},
+       'split_attribute': 1,
+       'split_value': 0.33},
+      'split_attribute': 9,
+      'split_value': 0.85},
+     'split_attribute': 2,
+     'split_value': 0.53},
+    'split_attribute': 1,
+    'split_value': 0.28},
+   'split_attribute': 10,
+   'split_value': 9.3},
+  'split_attribute': 10,
+  'split_value': 9.5},
+ 'split_attribute': 10,
+ 'split_value': 9.4}
+```
+
 
 ```python
 DecisionTreeEvalution(dt,X_test,y_test, True)
@@ -910,7 +1014,185 @@ print("fitting the decision tree")
 dt.fit(X_train, y_train, 0)
 ```
 
-show data
+```
+fitting the decision tree
+9
+4
+2
+6
+8
+6
+1
+9
+0
+7
+7
+7
+8
+9
+1
+7
+6
+8
+7
+1
+9
+0
+9
+8
+4
+8
+9
+7
+9
+{'isLeaf': False,
+ 'is_categorical': True,
+ 'leftTree': {'isLeaf': False,
+  'is_categorical': True,
+  'leftTree': {'class': 1.0, 'isLeaf': True},
+  'rightTree': {'isLeaf': False,
+   'is_categorical': True,
+   'leftTree': {'class': 1.0, 'isLeaf': True},
+   'rightTree': {'isLeaf': False,
+    'is_categorical': True,
+    'leftTree': {'class': 1.0, 'isLeaf': True},
+    'rightTree': {'isLeaf': False,
+     'is_categorical': True,
+     'leftTree': {'class': 1.0, 'isLeaf': True},
+     'rightTree': {'isLeaf': False,
+      'is_categorical': True,
+      'leftTree': {'class': 1.0, 'isLeaf': True},
+      'rightTree': {'isLeaf': False,
+       'is_categorical': True,
+       'leftTree': {'class': 1.0, 'isLeaf': True},
+       'rightTree': {'class': 0.0, 'isLeaf': True},
+       'split_attribute': 1,
+       'split_value': 0.37},
+      'split_attribute': 6,
+      'split_value': 0.99566},
+     'split_attribute': 8,
+     'split_value': 0.58},
+    'split_attribute': 6,
+    'split_value': 0.995},
+   'split_attribute': 2,
+   'split_value': 4.1},
+  'split_attribute': 4,
+  'split_value': 36.0},
+ 'rightTree': {'isLeaf': False,
+  'is_categorical': True,
+  'leftTree': {'isLeaf': False,
+   'is_categorical': True,
+   'leftTree': {'class': 1.0, 'isLeaf': True},
+   'rightTree': {'isLeaf': False,
+    'is_categorical': True,
+    'leftTree': {'class': 1.0, 'isLeaf': True},
+    'rightTree': {'isLeaf': False,
+     'is_categorical': True,
+     'leftTree': {'class': 1.0, 'isLeaf': True},
+     'rightTree': {'isLeaf': False,
+      'is_categorical': True,
+      'leftTree': {'class': 1.0, 'isLeaf': True},
+      'rightTree': {'isLeaf': False,
+       'is_categorical': True,
+       'leftTree': {'class': 1.0, 'isLeaf': True},
+       'rightTree': {'class': 0.0, 'isLeaf': True},
+       'split_attribute': 8,
+       'split_value': 0.58},
+      'split_attribute': 7,
+      'split_value': 3.28},
+     'split_attribute': 7,
+     'split_value': 3.09},
+    'split_attribute': 7,
+    'split_value': 3.06},
+   'split_attribute': 0,
+   'split_value': 0.44},
+  'rightTree': {'isLeaf': False,
+   'is_categorical': True,
+   'leftTree': {'isLeaf': False,
+    'is_categorical': True,
+    'leftTree': {'class': 1.0, 'isLeaf': True},
+    'rightTree': {'isLeaf': False,
+     'is_categorical': True,
+     'leftTree': {'isLeaf': False,
+      'is_categorical': True,
+      'leftTree': {'class': 0.0, 'isLeaf': True},
+      'rightTree': {'class': 1.0, 'isLeaf': True},
+      'split_attribute': 6,
+      'split_value': 0.9976},
+     'rightTree': {'isLeaf': False,
+      'is_categorical': True,
+      'leftTree': {'isLeaf': False,
+       'is_categorical': True,
+       'leftTree': {'class': 0.0, 'isLeaf': True},
+       'rightTree': {'class': 1.0, 'isLeaf': True},
+       'split_attribute': 7,
+       'split_value': 3.08},
+      'rightTree': {'isLeaf': False,
+       'is_categorical': True,
+       'leftTree': {'class': 1.0, 'isLeaf': True},
+       'rightTree': {'class': 0.0, 'isLeaf': True},
+       'split_attribute': 1,
+       'split_value': 0.39},
+      'split_attribute': 8,
+      'split_value': 0.42},
+     'split_attribute': 7,
+     'split_value': 3.1},
+    'split_attribute': 1,
+    'split_value': 0.28},
+   'rightTree': {'isLeaf': False,
+    'is_categorical': True,
+    'leftTree': {'isLeaf': False,
+     'is_categorical': True,
+     'leftTree': {'class': 0.0, 'isLeaf': True},
+     'rightTree': {'class': 1.0, 'isLeaf': True},
+     'split_attribute': 0,
+     'split_value': 0.31},
+    'rightTree': {'isLeaf': False,
+     'is_categorical': True,
+     'leftTree': {'isLeaf': False,
+      'is_categorical': True,
+      'leftTree': {'isLeaf': False,
+       'is_categorical': True,
+       'leftTree': {'class': 0.0, 'isLeaf': True},
+       'rightTree': {'class': 1.0, 'isLeaf': True},
+       'split_attribute': 4,
+       'split_value': 4.0},
+      'rightTree': {'isLeaf': False,
+       'is_categorical': True,
+       'leftTree': {'class': 0.0, 'isLeaf': True},
+       'rightTree': {'class': 1.0, 'isLeaf': True},
+       'split_attribute': 8,
+       'split_value': 0.34},
+      'split_attribute': 8,
+      'split_value': 0.44},
+     'rightTree': {'isLeaf': False,
+      'is_categorical': True,
+      'leftTree': {'isLeaf': False,
+       'is_categorical': True,
+       'leftTree': {'class': 0.0, 'isLeaf': True},
+       'rightTree': {'class': 1.0, 'isLeaf': True},
+       'split_attribute': 7,
+       'split_value': 3.11},
+      'rightTree': {'isLeaf': False,
+       'is_categorical': True,
+       'leftTree': {'class': 1.0, 'isLeaf': True},
+       'rightTree': {'class': 1.0, 'isLeaf': True},
+       'split_attribute': 9,
+       'split_value': 11.3},
+      'split_attribute': 9,
+      'split_value': 12.3},
+     'split_attribute': 9,
+     'split_value': 12.2},
+    'split_attribute': 9,
+    'split_value': 12.5},
+   'split_attribute': 9,
+   'split_value': 9.2},
+  'split_attribute': 9,
+  'split_value': 8.7},
+ 'split_attribute': 9,
+ 'split_value': 9.4}
+```
+
 
 ```python
 DecisionTreeEvalution(dt,X_test,y_test, True)
@@ -947,7 +1229,155 @@ dt = MyDecisionTree(max_depth)
 print("fitting the decision tree")
 dt.fit(X_train, y_train, 0)
 ```
-show data
+
+```
+fitting the decision tree
+10
+3
+3
+7
+10
+7
+10
+2
+9
+8
+8
+7
+6
+10
+0
+8
+9
+4
+10
+2
+4
+10
+3
+10
+{'isLeaf': False,
+ 'is_categorical': True,
+ 'leftTree': {'isLeaf': False,
+  'is_categorical': True,
+  'leftTree': {'class': 1.0, 'isLeaf': True},
+  'rightTree': {'isLeaf': False,
+   'is_categorical': True,
+   'leftTree': {'isLeaf': False,
+    'is_categorical': True,
+    'leftTree': {'class': 1.0, 'isLeaf': True},
+    'rightTree': {'class': 0.0, 'isLeaf': True},
+    'split_attribute': 7,
+    'split_value': 0.9984},
+   'rightTree': {'class': 0.0, 'isLeaf': True},
+   'split_attribute': 3,
+   'split_value': 11.1},
+  'split_attribute': 3,
+  'split_value': 4.6},
+ 'rightTree': {'isLeaf': False,
+  'is_categorical': True,
+  'leftTree': {'isLeaf': False,
+   'is_categorical': True,
+   'leftTree': {'class': 1.0, 'isLeaf': True},
+   'rightTree': {'class': 0.0, 'isLeaf': True},
+   'split_attribute': 7,
+   'split_value': 1.00005},
+  'rightTree': {'isLeaf': False,
+   'is_categorical': True,
+   'leftTree': {'isLeaf': False,
+    'is_categorical': True,
+    'leftTree': {'isLeaf': False,
+     'is_categorical': True,
+     'leftTree': {'class': 0.0, 'isLeaf': True},
+     'rightTree': {'isLeaf': False,
+      'is_categorical': True,
+      'leftTree': {'class': 0.0, 'isLeaf': True},
+      'rightTree': {'class': 1.0, 'isLeaf': True},
+      'split_attribute': 8,
+      'split_value': 3.25},
+     'split_attribute': 9,
+     'split_value': 0.47},
+    'rightTree': {'isLeaf': False,
+     'is_categorical': True,
+     'leftTree': {'class': 1.0, 'isLeaf': True},
+     'rightTree': {'isLeaf': False,
+      'is_categorical': True,
+      'leftTree': {'class': 1.0, 'isLeaf': True},
+      'rightTree': {'isLeaf': False,
+       'is_categorical': True,
+       'leftTree': {'class': 1.0, 'isLeaf': True},
+       'rightTree': {'class': 0.0, 'isLeaf': True},
+       'split_attribute': 6,
+       'split_value': 173.0},
+      'split_attribute': 7,
+      'split_value': 0.9970399999999999},
+     'split_attribute': 8,
+     'split_value': 3.37},
+    'split_attribute': 2,
+    'split_value': 0.36},
+   'rightTree': {'isLeaf': False,
+    'is_categorical': True,
+    'leftTree': {'isLeaf': False,
+     'is_categorical': True,
+     'leftTree': {'isLeaf': False,
+      'is_categorical': True,
+      'leftTree': {'class': 1.0, 'isLeaf': True},
+      'rightTree': {'isLeaf': False,
+       'is_categorical': True,
+       'leftTree': {'class': 1.0, 'isLeaf': True},
+       'rightTree': {'class': 0.0, 'isLeaf': True},
+       'split_attribute': 9,
+       'split_value': 0.48},
+      'split_attribute': 8,
+      'split_value': 3.07},
+     'rightTree': {'isLeaf': False,
+      'is_categorical': True,
+      'leftTree': {'class': 1.0, 'isLeaf': True},
+      'rightTree': {'class': 0.0, 'isLeaf': True},
+      'split_attribute': 4,
+      'split_value': 0.044000000000000004},
+     'split_attribute': 0,
+     'split_value': 7.0},
+    'rightTree': {'isLeaf': False,
+     'is_categorical': True,
+     'leftTree': {'isLeaf': False,
+      'is_categorical': True,
+      'leftTree': {'class': 1.0, 'isLeaf': True},
+      'rightTree': {'isLeaf': False,
+       'is_categorical': True,
+       'leftTree': {'class': 1.0, 'isLeaf': True},
+       'rightTree': {'class': 1.0, 'isLeaf': True},
+       'split_attribute': 4,
+       'split_value': 0.028999999999999998},
+      'split_attribute': 2,
+      'split_value': 0.29},
+     'rightTree': {'isLeaf': False,
+      'is_categorical': True,
+      'leftTree': {'isLeaf': False,
+       'is_categorical': True,
+       'leftTree': {'class': 1.0, 'isLeaf': True},
+       'rightTree': {'class': 0.0, 'isLeaf': True},
+       'split_attribute': 3,
+       'split_value': 14.9},
+      'rightTree': {'isLeaf': False,
+       'is_categorical': True,
+       'leftTree': {'class': 1.0, 'isLeaf': True},
+       'rightTree': {'class': 0.0, 'isLeaf': True},
+       'split_attribute': 10,
+       'split_value': 12.6},
+      'split_attribute': 10,
+      'split_value': 9.3},
+     'split_attribute': 10,
+     'split_value': 12.8},
+    'split_attribute': 10,
+    'split_value': 9.6},
+   'split_attribute': 10,
+   'split_value': 9.5},
+  'split_attribute': 10,
+  'split_value': 9.2},
+ 'split_attribute': 10,
+ 'split_value': 9.4}
+```
 
 ```python
 DecisionTreeEvalution(dt,X_test,y_test, True)
