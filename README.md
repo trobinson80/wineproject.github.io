@@ -153,7 +153,7 @@ for i in range(len(Y_red)):
 
 plt.bar(range(len(buckets)), buckets)
 ```
-show bar graph
+![](bar_graph.png)
 
 ```python
 def plot_curve(x, y, color, label_x, label_y, curve_type='.', lw=2):
@@ -252,7 +252,9 @@ print("Retained variance for Red wine dataset ",retained_variance_for_wine)
 retained_variance_for_wine=visualize(X_white,Y_white,'b','total Sulfur Dioxide','Free Sulfur Dioxide')
 print("Retained variance for White wine dataset ",retained_variance_for_wine)
 ```
-show chart
+![](graph_pca.png)
+
+Base on the groupings on the above graph, it is evident that the two principal features among the wines differ significantly.
 
 
 **Perform PCA on Data**
@@ -389,7 +391,15 @@ y_test_pred = RidgeReg.predict(X_redCV, weight)
 test_rmse = rmse(y_test_pred, Y_redCV)
 print('test rmse: %.4f' % test_rmse)
 ```
-put cross results here
+> lambda: 0.00 error: 0.646135
+> lambda: 0.10 error: 0.646210
+> lambda: 1.00 error: 0.648945
+> lambda: 5.00 error: 0.654520
+> lambda: 10.00 error: 0.657310
+> lambda: 100.00 error: 0.677917
+> lambda: 1000.00 error: 0.704367
+> best_lambda for Red Wine: 0.00
+> test rmse: 0.6585
 
 ```python
 def cross_validation(X, y, kfold, c_lambda):
@@ -424,6 +434,17 @@ y_test_pred = RidgeReg.predict(X_whiteCV, weight)
 test_rmse = rmse(y_test_pred, Y_whiteCV)
 print('test rmse: %.4f' % test_rmse)
 ```
+> lambda: 0.00 error: 0.753389
+> lambda: 0.10 error: 0.753396
+> lambda: 1.00 error: 0.753554
+> lambda: 5.00 error: 0.754501
+> lambda: 10.00 error: 0.755552
+> lambda: 100.00 error: 0.767648
+> lambda: 1000.00 error: 0.786491
+> best_lambda for White Wine: 0.00
+> test rmse: 0.7577
+
+
 **PCA For every Group Red Wine**
 
 ```python
