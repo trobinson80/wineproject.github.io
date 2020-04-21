@@ -4,12 +4,13 @@
 ### By Alex Karwoski, August Stapf, Thomas Robinson, and Michael Bick
 
 **Introduction**
-
-While seeing relatives out in Oregon, one of our initial group members, Michael Leon, went around visiting vineyards and wineries on the Oregon countryside with his uncle. His uncle taught him the ins and outs of wine tasting, and what makes certain wines different from others in taste, quality, and other aspects. As we were looking around at public datasets to do our project, we came across the wine dataset, and after we heard his story, we were curious if wine quality could be determined based on the chemical components of the wine, as opposed to just a connoisseur's taste. All of our group members showed an interest in the topic, and we were all in to do our project on wine. 
-
-Previous work using machine learning on the wine dataset is extensive in the literature [1-3]. Varied techniques have been used: from common classification techniques like k-nearest neighbors, random forests, and SVMs [2], to uncommon techniques like fuzzy ones [1-3]. In our project, we compare benchmark these techniques against more modern ones.
-
-First, the team uses statistical methods to analyze the data and perform principal component analysis (PCA). Then, the team uses the best features from PCA in various classification and regression algorithms. Method one implements the k-means algorithm, where the assigned cluster mean wine quality is a predictor. 
+While seeing relatives out in Oregon, one of our initial group members, Michael Leon, went around visiting vineyards and wineries in the Oregon countryside with his uncle. His uncle taught him the ins and outs of wine tasting, and what makes certain wines different from others in taste, quality, and other aspects. As we were looking around at public datasets to do our project, we came across the wine dataset, and after we heard his story, we were curious if wine quality could be determined based on the chemical components of the wine, as opposed to just a connoisseur's taste. All of our group members showed an interest in the topic, and we were all in to do our project on wine.
+ 
+Previous work using machine learning on the wine dataset is extensive in the literature [1-3]. Varied techniques have been used: from common classification techniques like k-nearest neighbors, random forests, and SVMs [2], to uncommon techniques like fuzzy ones [1,3]. In our project, we benchmark these techniques against more modern ones.
+ 
+First, the team uses statistical methods to analyze the data and perform principal component analysis (PCA). Then, the team uses the best features from PCA in various classification and regression algorithms. Method one implements the k-means algorithm, where the assigned cluster mean is used to predict a wine's quality. Algorithm 2 is an implementation of ridge regression on the wine quality values. Technique 3 is a decision tree implementation that classifies the wine qualities based on groups of “bad” and “good” quality.
+ 
+Together, these techniques demonstrate a comprehensive analysis of modern machine learning techniques on the wine dataset. Overall, we hope the methods we develop during this project enable classifying wines qualitatively rather than subjectively. These models can be used to make business decisions on the variable inputs that companies need to consider when bringing a new wine to market. They can reduce the amount of research and development costs necessary to develop new varieties of wine. Additionally, they could be used to aid wine sellers in pricing their products. The value of the wine industry makes this project very useful to those who may want to consider a scientific approach to man
 
 [1] Escobet, Antoni, et al. “Modeling Wine Preferences from Physicochemical Properties Using Fuzzy 
 Techniques .” Scitepress, pp. 1–7.
