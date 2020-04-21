@@ -41,7 +41,7 @@ Below is an example of what the data for the physiochemical properties of the wi
 red_dataframe = pd.read_csv('winequality-red.csv', sep=';')
 red_dataframe.head()
 ```
-!
+![](sample_data.png)
 
 **Red Wine Information and Correlation Matrix**
 
