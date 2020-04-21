@@ -50,12 +50,15 @@ Here we have information on each of the individual attributes of the red wines. 
 ```python
 red_dataframe = pd.read_csv('winequality-red.csv', sep=';')
 red_dataframe.drop('quality', axis=1).describe()
+```
+![](red_info.png)
 
+```python
 correlation = red_dataframe.corr()
 fig, ax = plt.subplots(figsize=(15,15))
 sns.heatmap(correlation, xticklabels=correlation.columns, yticklabels=correlation.columns, cmap='coolwarm_r', vmin=-1, vmax=1, annot=True, ax=ax)
 ```
-put the info on red dataframe here
+![](red_matrix.png)
 
 **White Wine Information and Correlation Matrix**
 
@@ -64,12 +67,18 @@ Here we have information on each of the individual attributes of the white wines
 ```python
 white_dataframe = pd.read_csv('winequality-white.csv', sep=';')
 white_dataframe.drop('quality', axis=1).describe()
+```
 
+![](white_info.png)
+
+
+```python
 correlation = white_dataframe.corr()
 fig, ax = plt.subplots(figsize=(15,15))
 sns.heatmap(correlation, xticklabels=correlation.columns, yticklabels=correlation.columns,cmap='coolwarm_r', vmin=-1, vmax=1, annot=True, ax=ax)
 ```
-put info on white dataframe here
+
+![](white_matrix.png)
 
 **Combined Wine Information and Correlation Matrix**
 
@@ -78,14 +87,16 @@ Here we have information on each of the individual attributes of the combined re
 ```python
 both = [red_dataframe, white_dataframe]
 both_dataframe = pd.concat(both)
-
 both_dataframe.drop('quality', axis=1).describe()
+```
+![](both_info.png)
 
+```python
 correlation = both_dataframe.corr()
 fig, ax = plt.subplots(figsize=(15,15))
 sns.heatmap(correlation, xticklabels=correlation.columns, yticklabels=correlation.columns,cmap='coolwarm_r', vmin=-1, vmax=1, annot=True, ax=ax)
 ```
-put info on both dataframe here
+![](both_matrix.png)
 
 
 """Steps:
