@@ -4,6 +4,7 @@
 ### By Alex Karwoski, August Stapf, Thomas Robinson, and Michael Bick
 
 **Introduction**
+
 While seeing relatives out in Oregon, one of our initial group members, Michael Leon, went around visiting vineyards and wineries in the Oregon countryside with his uncle. His uncle taught him the ins and outs of wine tasting, and what makes certain wines different from others in taste, quality, and other aspects. As we were looking around at public datasets to do our project, we came across the wine dataset, and after we heard his story, we were curious if wine quality could be determined based on the chemical components of the wine, as opposed to just a connoisseur's taste. All of our group members showed an interest in the topic, and we were all in to do our project on wine.
  
 Previous work using machine learning on the wine dataset is extensive in the literature [1-3]. Varied techniques have been used: from common classification techniques like k-nearest neighbors, random forests, and SVMs [2], to uncommon techniques like fuzzy ones [1,3]. In our project, we benchmark these techniques against more modern ones.
@@ -37,7 +38,7 @@ The dataset contains the wine attributes: Fixed Acidity, Volatile Acidity, Citri
 **Sample Data**
 
 Below is an example of what the data for the physiochemical properties of the wine looks like. The first 11 columns are the separate chemical properties that we will be analyzing to see how they relate to the overall wine which is in the last column.
-"""
+
 ```python
 red_dataframe = pd.read_csv('winequality-red.csv', sep=';')
 red_dataframe.head()
@@ -47,7 +48,7 @@ red_dataframe.head()
 **Red Wine Information and Correlation Matrix**
 
 Here we have information on each of the individual attributes of the red wines. The following information shows us the Averge, Standard Deviation, Min, Max, etc. Below that is the Correlation of each attribute to each other attribute
-"""
+
 ```python
 red_dataframe = pd.read_csv('winequality-red.csv', sep=';')
 red_dataframe.drop('quality', axis=1).describe()
