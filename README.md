@@ -941,7 +941,7 @@ def DecisionTreeEvalution(dt,X,y, verbose=False):
     return accuracy
 ```
 
-
+## Red Wine
 ```python
 data_test = pd.read_csv("RedWineTest.csv")
 data_train = pd.read_csv("RedWineTrain.csv")
@@ -953,8 +953,7 @@ y_train = np.array(data_train)[:,-1]
 X_test = np.array(data_test)[:,:-2]
 y_test = np.array(data_test)[:,-1]
 ```
-data
-
+> (1279, 11) <br/>
 
 ```python
 # Initializing a decision tree.
@@ -1073,9 +1072,9 @@ fitting the decision tree
 ```python
 DecisionTreeEvalution(dt,X_test,y_test, True)
 ```
-show data
+> Accuracy: 0.9062 <br/>
 
-
+## White Wine
 ```python
 data_test = pd.read_csv("WhiteWineTest.csv")
 data_train = pd.read_csv("WhiteWineTrain.csv")
@@ -1087,7 +1086,7 @@ y_train = np.array(data_train)[:,-1]
 X_test = np.array(data_test)[:,:-2]
 y_test = np.array(data_test)[:,-1]
 ```
-show data
+> (3917, 10) <br/>
 
 ```python
 # Initializing a decision tree.
@@ -1282,7 +1281,9 @@ fitting the decision tree
 ```python
 DecisionTreeEvalution(dt,X_test,y_test, True)
 ```
+> Accuracy: 0.7102 <br/>
 
+## Combined Wines
 ```python
 data = np.array(pd.read_csv("Wine.csv"))
 
@@ -1302,7 +1303,7 @@ y_train = np.array(data)[idxs,-1]
 X_test = np.array(data)[idx,:-2]
 y_test = np.array(data)[idx,-1]
 ```
-show data
+> (5197, 11) <br/>
 
 
 ```python
@@ -1467,6 +1468,8 @@ fitting the decision tree
 ```python
 DecisionTreeEvalution(dt,X_test,y_test, True)
 ```
+> Accuracy: 0.8031 <br/>
+
 show data
 
 We decided to implement the supervised learning analysis of decision trees. For our decision trees, the dependent variable(classification) is going to be the quality of the wine broken into two groups: Bad Wine (0-5) and Good Wine (6+). We used 80% of the data to train the tree, and the other 20% to test it. 
