@@ -1230,7 +1230,7 @@ print("fitting the decision tree")
 dt.fit(X_train, y_train, 0)
 ```
 
-```
+```{r, attr.output='style="max-height: 200px;"'}
 fitting the decision tree
 10
 3
