@@ -131,6 +131,8 @@ from __future__ import division
 # %matplotlib inline  
 ```
 
+
+```python
 import sys
 from math import *
 import matplotlib
@@ -147,6 +149,7 @@ from sklearn.datasets import load_boston, load_diabetes, load_digits, load_breas
 # %matplotlib inline
 from sklearn.cluster import KMeans
 
+
 data_red=np.genfromtxt("RedWine.csv", delimiter=',')
 X_red = data_red[1:,:-1]
 Y_red = data_red[1:,-1]
@@ -155,22 +158,28 @@ Y_red = data_red[1:,-1]
 data_white=np.genfromtxt("WhiteWine.csv", delimiter=',')
 X_white = data_white[1:,:-1]
 Y_white = data_white[1:,-1]
+```
+**Data Distribution**
 
-"""Data Distribution"""
-
+```python
 buckets = [0] * 10
 
 for i in range(len(Y_red)):
   buckets[int(Y_red[i])] += 1
 
 plt.bar(range(len(buckets)), buckets)
+```
+show bar graph
 
+```python
 def plot_curve(x, y, color, label_x, label_y, curve_type='.', lw=2):
     plt.plot(x, y, curve_type, color=color, linewidth=lw, )
     plt.xlabel(label_x)
     plt.ylabel(label_y)
     plt.grid(True)
+```
 
+```python
 def pca(X):
     """
     Decompose dataset into principal components. 
@@ -185,8 +194,7 @@ def pca(X):
     """
     U, s, VT = np.linalg.svd(X)
     return U, s, VT
-
-    
+   
 def intrinsic_dimension(S, recovered_variance=.99):
     """
     Find the number of principal components necessary to recover given proportion of variance
@@ -228,7 +236,9 @@ def num_linearly_ind_features(S, eps=1e-11):
       if val > eps:
         count = count + 1
     return count
+```
 
+```python
 def visualize(X,y, color, x_label, y_label):
   """
   Args:
@@ -247,7 +257,9 @@ def visualize(X,y, color, x_label, y_label):
 
 
   return np.sum(s[0:2])/np.sum(s)
+```
 
+```python
 #Use PCA for visualization of  wine data
 
 retained_variance_for_wine=visualize(X_red,Y_red, 'r', 'Total Sulfur Dioxide','Free Sulfur Dioxide')
@@ -255,9 +267,13 @@ print("Retained variance for Red wine dataset ",retained_variance_for_wine)
 
 retained_variance_for_wine=visualize(X_white,Y_white,'b','total Sulfur Dioxide','Free Sulfur Dioxide')
 print("Retained variance for White wine dataset ",retained_variance_for_wine)
+```
+show chart
 
-"""Perform PCA on Data"""
 
+**Perform PCA on Data**
+
+```python
 def rmse(pred, label): 
     '''
     This is the root mean square error.
@@ -272,7 +288,9 @@ def rmse(pred, label):
     dif = dif/len(pred)
     sum_dif =sum(dif)
     return np.sqrt(sum_dif)
+```
 
+```python
 class LinearReg(object):
     @staticmethod 
     # static method means that you can use this method or function for any other classes, it is not specific to LinearReg
@@ -303,7 +321,9 @@ class LinearReg(object):
         """
         
         return xtest @ weight
+```
 
+```python
 class RidgeReg(LinearReg):
 
     @staticmethod
@@ -313,7 +333,9 @@ class RidgeReg(LinearReg):
       G = c_lambda * I
       G[0,0] = 0
       return (np.linalg.inv(xtrain.T @ xtrain + G) @ xtrain.T @ ytrain)
+```
 
+```python
 #apply PCA on the dataset and also find the number of linearly independent and intrinsic components 
 def apply_PCA_on_data(X):
   """
@@ -332,7 +354,9 @@ def apply_PCA_on_data(X):
   proj = VT[:,0:k]
   data = X @ proj
   return data, num_linearly_ind_features(s), k
+```
 
+```python
 def apply_regression(X_train,y_train,X_test):
   """
   Args:
@@ -345,9 +369,11 @@ def apply_regression(X_train,y_train,X_test):
   """
   w = RidgeReg.fit_closed(X_train, y_train, c_lambda = 0)
   return X_test @ w
+```
 
-"""Cross Validation"""
+**Cross Validation**
 
+```python
 def cross_validation(X, y, kfold, c_lambda):
     X_groups = np.split(X, kfold, axis = 0)
     Y_groups = np.split(y, kfold, axis = 0)
@@ -378,7 +404,10 @@ weight = RidgeReg.fit_closed(X_redCV, Y_redCV, c_lambda=10)
 y_test_pred = RidgeReg.predict(X_redCV, weight)
 test_rmse = rmse(y_test_pred, Y_redCV)
 print('test rmse: %.4f' % test_rmse)
+```
+put cross results here
 
+```python
 def cross_validation(X, y, kfold, c_lambda):
     X_groups = np.split(X, kfold, axis = 0)
     Y_groups = np.split(y, kfold, axis = 0)
@@ -410,9 +439,10 @@ weight = RidgeReg.fit_closed(X_whiteCV, Y_whiteCV, c_lambda=10)
 y_test_pred = RidgeReg.predict(X_whiteCV, weight)
 test_rmse = rmse(y_test_pred, Y_whiteCV)
 print('test rmse: %.4f' % test_rmse)
+```
+**PCA For every Group red Wine**
 
-"""PCA For every Group red Wine"""
-
+```python
 X_red_ratings = [[]]
 Y_red_ratings = [[]]
 for i in range(10):
@@ -449,9 +479,12 @@ for i in range(10):
     i += 1
     avg += rmse_score
 print("Average rmse: ", avg/i)
+```
+show picture of data
 
-"""Whtie"""
+**White**
 
+```python
 X_white_ratings = [[]]
 Y_white_ratings = [[]]
 for i in range(10):
@@ -490,7 +523,10 @@ for i in range(10):
     l += 1
     avg += rmse_score
 print("Average rmse: ", avg/l)
+```
+picture of data
 
+```python
 #load the dataset 
 
 
@@ -511,7 +547,12 @@ y_pred=apply_regression(X_train,y_train,X_test)
 #calculate RMSE 
 rmse_score = rmse(y_pred, y_test)
 print("rmse of Red Wine score with PCA",rmse_score)
+```
 
+data
+
+
+```python
 #Ridge regression without PCA
 X_train=X_red[:int(0.8*len(X_red)),:]
 y_train=Y_red[:int(0.8*len(X_red))].reshape(-1,1)
@@ -525,7 +566,10 @@ y_pred=apply_regression(X_train,y_train,X_test)
 print(X_train.shape)
 rmse_score = rmse(y_pred, y_test)
 print("rmse score of Red Wine without PCA",rmse_score)
+```
+show data
 
+```python
 #load the dataset 
 X_PCA, ind_features, intrinsic_dimensions = apply_PCA_on_data(X_white)
 print("data shape with PCA ",X_PCA.shape)
@@ -544,7 +588,10 @@ y_pred=apply_regression(X_train,y_train,X_test)
 #calculate RMSE 
 rmse_score = rmse(y_pred, y_test)
 print("rmse of White Wine score with PCA",rmse_score)
+```
+show data
 
+```python
 #Ridge regression without PCA
 X_train=X_white[:int(0.8*len(X_white)),:]
 y_train=Y_white[:int(0.8*len(X_white))].reshape(-1,1)
@@ -558,9 +605,11 @@ y_pred=apply_regression(X_train,y_train,X_test)
 print(X_train.shape)
 rmse_score = rmse(y_pred, y_test)
 print("rmse score of White Wine without PCA",rmse_score)
+```
 
-"""Classifying Wines"""
+**Classifying Wines**
 
+```python
 #Bad Wine 0-4
 #Good Wine 5-6
 #Great Wine 7+
@@ -601,7 +650,10 @@ def visualise(X, C, K):#Visualization of clustering. You don't need to change th
     plt.show()
     pass
 visualise(X_red, kmeans.labels_,k)
+```
+show data
 
+```
 def find_optimal_num_clusters():
     """Plots loss values for different number of clusters in K-Means
     Args:
@@ -620,9 +672,13 @@ def find_optimal_num_clusters():
     plt.plot(range(1, 9), losses)
     plt.show()
 find_optimal_num_clusters()
+```
+show picture of data
 
-"""**Trees**"""
 
+**Trees**
+
+```python
 import numpy as np
 from collections import Counter
 from scipy import stats
@@ -631,7 +687,9 @@ import pandas as pd
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import LabelEncoder
 from sklearn.tree import DecisionTreeClassifier
+```
 
+```python
 def entropy(class_y):
     
     ones = sum(class_y)/len(class_y)
@@ -790,9 +848,10 @@ def DecisionTreeEvalution(dt,X,y, verbose=False):
     if verbose:
         print("accuracy: %.4f" % accuracy)
     return accuracy
+```
 
 
-
+```python
 data_test = pd.read_csv("RedWineTest.csv")
 data_train = pd.read_csv("RedWineTrain.csv")
 
@@ -802,7 +861,10 @@ print(X_train.shape)
 y_train = np.array(data_train)[:,-1]
 X_test = np.array(data_test)[:,:-2]
 y_test = np.array(data_test)[:,-1]
+```
+show data
 
+```python
 # Initializing a decision tree.
 max_depth = 7
 dt = MyDecisionTree(max_depth)
@@ -810,9 +872,16 @@ dt = MyDecisionTree(max_depth)
 # Building a tree
 print("fitting the decision tree")
 dt.fit(X_train, y_train, 0)
+```
+show data
 
+```python
 DecisionTreeEvalution(dt,X_test,y_test, True)
+```
+show data
 
+
+```python
 data_test = pd.read_csv("WhiteWineTest.csv")
 data_train = pd.read_csv("WhiteWineTrain.csv")
 
@@ -822,7 +891,10 @@ print(X_train.shape)
 y_train = np.array(data_train)[:,-1]
 X_test = np.array(data_test)[:,:-2]
 y_test = np.array(data_test)[:,-1]
+```
+show data
 
+```python
 # Initializing a decision tree.
 max_depth = 7
 dt = MyDecisionTree(max_depth)
@@ -830,9 +902,15 @@ dt = MyDecisionTree(max_depth)
 # Building a tree
 print("fitting the decision tree")
 dt.fit(X_train, y_train, 0)
+```
 
+show data
+
+```python
 DecisionTreeEvalution(dt,X_test,y_test, True)
+```
 
+```python
 data = np.array(pd.read_csv("Wine.csv"))
 
 idx = np.arange(data.shape[0]).tolist()
@@ -850,7 +928,11 @@ print(X_train.shape)
 y_train = np.array(data)[idxs,-1]
 X_test = np.array(data)[idx,:-2]
 y_test = np.array(data)[idx,-1]
+```
+show data
 
+
+```python
 # Initializing a decision tree.
 max_depth = 7
 dt = MyDecisionTree(max_depth)
@@ -858,51 +940,11 @@ dt = MyDecisionTree(max_depth)
 # Building a tree
 print("fitting the decision tree")
 dt.fit(X_train, y_train, 0)
-
-DecisionTreeEvalution(dt,X_test,y_test, True)
-
-
-
-
-
-
-
-## No Wine Left Behind
-
-
-You can use the [editor on GitHub](https://github.com/trobinson80/wineproject.github.io/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
-
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
-
-### Markdown
-
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
-
-```markdown
-Syntax highlighted code block
-
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
 ```
+show data
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/trobinson80/wineproject.github.io/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+```python
+DecisionTreeEvalution(dt,X_test,y_test, True)
+```
+show data
 
