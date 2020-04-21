@@ -100,6 +100,7 @@ sns.heatmap(correlation, xticklabels=correlation.columns, yticklabels=correlatio
 ```
 ![](both_matrix.png)
 
+The correlation matrix was made in order to help visualize the mean and standard deviation of each feature with respect to the quality variable. Using it, one can determine the correlations between various feature’s and a blend of wine’s quality. Qualitatively, correlation coefficient with magnitude greater than 0.2 show features that have strong predictive power. For the red wine data set alone, the features that have a perceived relationship of some type with the quality rating are volatile acidity, alcohol content, citric acid, and sulphates. For the wine data set alone, the features that have a perceived relationship with the quality rating are chlorides, density, and alcohol content. Already we can see that the two types of wine may need to be analyzed separately in order to create an accurate model, but we will still consider the full data set of both types. The full data set shows strong correlation of volatile acidity, chlorides, density, and alcohol content with the quality rating of the wine.
 
 """Steps:
 Distribution:
@@ -444,7 +445,7 @@ y_test_pred = RidgeReg.predict(X_whiteCV, weight)
 test_rmse = rmse(y_test_pred, Y_whiteCV)
 print('test rmse: %.4f' % test_rmse)
 ```
-**PCA For every Group red Wine**
+**PCA For every Group Red Wine**
 
 ```python
 X_red_ratings = [[]]
@@ -486,7 +487,7 @@ print("Average rmse: ", avg/i)
 ```
 show picture of data
 
-**White**
+**PCA For every Group White Wine**
 
 ```python
 X_white_ratings = [[]]
@@ -611,6 +612,12 @@ rmse_score = rmse(y_pred, y_test)
 print("rmse score of White Wine without PCA",rmse_score)
 ```
 
+We decided to use dimension reduction to clean up the data and reduce the number of random variables in consideration. We performed principal component analysis(PCA) on the features on both types of wine and obtained the retained variance normalized to total variance in order to select only the variables that contribute the most to the total variance. For red wine, PCA was able to select 4 of the 11 components in order to retain 99% of the total variance of that data set. For white wine, PCA narrowed down the components to 6 from 11 while maintaining 99% of the variance in this data set. With this information, we know we can later on build a simpler, more efficient model(linear regression, decision tree, etc.) with less data. 
+
+Ridge regression was then incorporated into our analysis (using a lambda equal to 0 based on the results of our cross validation algorithm) with and without the prior PCA method. The red wine data had an rmse of .657 without PCA and .823 with PCA. We further broke the data into the individual rating groups, and each of these had a lower rmse. The white wine data had an rmse  of .715 without PCA and .839 with PCA. Breaking this data down into the rating groups gave a lower rmse for each individual group. Looking into this, we can see that the rmse is higher for rating groups with a low number of data points, which makes sense because the model would be less accurate with fewer test points. Another take away that we have from this model is that white wine tends to have a higher rmse because the training error is increased with more data points(white wine has 3x as many data points as red wine) because of overfitting. We conclude that PCA is less necessary with more data
+
+We also used the retained variance calculations on each feature to represent how correlated two features are. For example, we performed this on the graph below, which details two features as the variables (Free Sulfur Dioxide vs. Total Sulfur Dioxide). The red points represent the red wine data set, and the blue points represent the white wine data set. We can note a couple key points from this graph. First, the data varies little in the diagonal directional which implies strong correlation between the two features. Second, the two wine types occupy separate clusters in the graph, which further argues that the different wine types should be analyzed separately.
+
 ### K Means
 
 **Classifying Wines**
@@ -680,6 +687,10 @@ def find_optimal_num_clusters():
 find_optimal_num_clusters()
 ```
 show picture of data
+
+In order for us to classify the wine into different groups, we had to create these different groups while still considering the quality rating. We decided to classify the wines into 3 groups: Bad Wine (0-4), Good Wine (5-6), and Great Wine (7+). We then applied the k-means clustering algorithm. 
+ 
+With the picture, we can see there is still a lot of overlap between the three clusters. To deal with this, we then performed a distortion score analysis that plots the sum of squared distances from each point to its assigned center in order to decide the optimal number of clusters. The best number of clusters occurs at the “elbow” of the graph, which can be seen at……(2 or 3)? While we have correctly applied the K-means clustering algorithm on the quality groups of the data and clusters are dense in some locations, we can still build a better model that more accurately predicts the quality based on the given features.
 
 
 ### Trees
@@ -1230,7 +1241,7 @@ print("fitting the decision tree")
 dt.fit(X_train, y_train, 0)
 ```
 
-```{r, attr.output='style="max-height: 200px;"'}
+```
 fitting the decision tree
 10
 3
@@ -1383,4 +1394,12 @@ fitting the decision tree
 DecisionTreeEvalution(dt,X_test,y_test, True)
 ```
 show data
+
+Next, we decided to implement the supervised learning analysis of decision trees. For our decision trees, the dependent variable(classification) is going to be the quality of the wine broken into two groups: Bad Wine (0-5) and Good Wine (6+). We used 80% of the data to train the tree, and the other 20% to test it. 
+First, we considered the red wine alone. We split the data into a train group for building the tree, and a test group for testing the accuracy of the decision tree. The red wine tree had an accuracy of 90.63% for predicting if the wine was good and the first split attribute was the alcohol content. We performed the same analysis using the white wine data set, but we achieved a much lower accuracy of 71.02% with a primary split attribute of Sulphates. Creating and testing a decision tree using the full data set gave us an accuracy of 80.31%. It is surprising that the first split on the total tree was alcohol as the white wine data set has almost triple the data points as the red wine set. However, the difference in the two split attributes among the different trees implies it makes more sense to analyze them separately as more information is gained by different attributes for each respective tree.
+
+The one concern with using a decision tree was the correlation between the variables. This would make each split less independent of the others which would decrease the information gain at each level. This is evidenced by multiple splits on the same attribute occuring in sequence. For example, in the red wine data set, the tree splits on alcohol content 6 seperate times, showing the dominance of this variable over the others. It follows that in the prior PCA analyses, alcohol content was a retained feature in each iteration of the algorithm we ran. Overall, this was the best way we found to classify the data; however, it only breaks it down into two classes. 
+
+### Conclusion
+
 
