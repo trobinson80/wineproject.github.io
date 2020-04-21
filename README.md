@@ -941,7 +941,7 @@ def DecisionTreeEvalution(dt,X,y, verbose=False):
     return accuracy
 ```
 
-## Red Wine
+**Red Wine**
 ```python
 data_test = pd.read_csv("RedWineTest.csv")
 data_train = pd.read_csv("RedWineTrain.csv")
@@ -1074,7 +1074,7 @@ DecisionTreeEvalution(dt,X_test,y_test, True)
 ```
 > Accuracy: 0.9062 <br/>
 
-## White Wine
+**White Wine**
 ```python
 data_test = pd.read_csv("WhiteWineTest.csv")
 data_train = pd.read_csv("WhiteWineTrain.csv")
@@ -1283,7 +1283,7 @@ DecisionTreeEvalution(dt,X_test,y_test, True)
 ```
 > Accuracy: 0.7102 <br/>
 
-## Combined Wines
+**Combined Wines**
 ```python
 data = np.array(pd.read_csv("Wine.csv"))
 
