@@ -102,31 +102,7 @@ sns.heatmap(correlation, xticklabels=correlation.columns, yticklabels=correlatio
 
 The correlation matrix was made in order to help visualize the mean and standard deviation of each feature with respect to the quality variable. Using it, one can determine the correlations between various feature’s and a blend of wine’s quality. Qualitatively, correlation coefficient with magnitude greater than 0.2 show features that have strong predictive power. For the red wine data set alone, the features that have a perceived relationship of some type with the quality rating are volatile acidity, alcohol content, citric acid, and sulphates. For the wine data set alone, the features that have a perceived relationship with the quality rating are chlorides, density, and alcohol content. Already we can see that the two types of wine may need to be analyzed separately in order to create an accurate model, but we will still consider the full data set of both types. The full data set shows strong correlation of volatile acidity, chlorides, density, and alcohol content with the quality rating of the wine.
 
-"""Steps:
-Distribution:
-  -Bar graph of distribution
-  -Normalize Data
-
-PCA Analyses to get the most important components
-  -Visulaization
-  -Short discussion and reasoning
-Types of Anlayses to use and compare
-LDA
-Ridge Regression
-  -Cross Validation
-SVM
-
-Precision Should be low:
-Try Clustering with poor, good, great
-GMM
-K-means
-Compare accuracy of models
-
-Create Regression models within classes
-Compare to original results
-"""
-
-### PCA
+### Import Data
 
 ```python
 from __future__ import absolute_import
@@ -164,6 +140,9 @@ data_white=np.genfromtxt("WhiteWine.csv", delimiter=',')
 X_white = data_white[1:,:-1]
 Y_white = data_white[1:,-1]
 ```
+
+### PCA
+
 **Data Distribution**
 
 ```python
