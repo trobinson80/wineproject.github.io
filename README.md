@@ -68,19 +68,19 @@ Their Physicochemical Qualities. International Journal of Intelligent Systems an
 from physicochemical properties. In Decision Support Systems, Elsevier, 47(4):547-553. ISSN: 0167-9236.
 """
 
-'
+```python
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
 
 # %matplotlib inline
-'
-"""**Dataset**
+```
+#Dataset
 
 The dataset contains the wine attributes: Fixed Acidity, Volatile Acidity, Citric Acid, Residual Sugar, Chlorides, Free Sulfur Dioxide, Total Sulfur Dioxide, Density, pH, Sulphates, Alcohol(% ABV), and the Quality. In conductiing our tests, we want to determine which of the attributes are more important in determining the quality of wine than others.
 
-**Sample Data**
+#Sample Data
 
 Below is an example of what the data for the physiochemical properties of the wine looks like. The first 11 columns are the separate chemical properties that we will be analyzing to see how they relate to the overall wine which is in the last column.
 """
