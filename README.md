@@ -964,7 +964,7 @@ dt.fit(X_train, y_train, 0)
 ```
 
 
-
+Splitting Attributes in Order
 ```
 fitting the decision tree
 10
@@ -983,6 +983,9 @@ fitting the decision tree
 9
 10
 1
+```
+Tree Structure
+```
 {'isLeaf': False,
  'is_categorical': True,
  'leftTree': {'class': 0.0, 'isLeaf': True},
@@ -1096,6 +1099,7 @@ print("fitting the decision tree")
 dt.fit(X_train, y_train, 0)
 ```
 
+Splitting Attributes in Order
 ```
 fitting the decision tree
 9
@@ -1127,6 +1131,9 @@ fitting the decision tree
 9
 7
 9
+```
+Tree Structure
+```
 {'isLeaf': False,
  'is_categorical': True,
  'leftTree': {'isLeaf': False,
@@ -1313,7 +1320,7 @@ dt = MyDecisionTree(max_depth)
 print("fitting the decision tree")
 dt.fit(X_train, y_train, 0)
 ```
-
+Splitting Attributes in Order
 ```
 fitting the decision tree
 10
@@ -1340,6 +1347,9 @@ fitting the decision tree
 10
 3
 10
+```
+Tree Structure
+```
 {'isLeaf': False,
  'is_categorical': True,
  'leftTree': {'isLeaf': False,
