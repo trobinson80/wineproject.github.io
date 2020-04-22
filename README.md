@@ -1,3 +1,6 @@
+The work for this project was conducted in Google Colab with each member contributing to the Colab file. We also wrote up the written sections in a Google Doc. The work from both of those files was then transferred to this page. I have provided the .ipynb file and the google doc PDF where all edits were made in the github repository.
+
+
 
 # No Wine Left Behind
 
