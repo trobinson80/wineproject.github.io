@@ -761,9 +761,11 @@ find_optimal_num_clusters()
 ```
 ![](graph_k.png)
 
-In order for us to classify the wine into different groups, we had to create these different groups while still considering the quality rating. We decided to classify the wines into 3 groups: Bad Wine (0-4), Good Wine (5-6), and Great Wine (7+). We then applied the k-means clustering algorithm. 
- 
-With the picture, we can see there is still a lot of overlap between the three clusters. To deal with this, we then performed a distortion score analysis that plots the sum of squared distances from each point to its assigned center in order to decide the optimal number of clusters. The best number of clusters occurs at the “elbow” of the graph, which can be seen at……(2 or 3)? While we have correctly applied the K-means clustering algorithm on the quality groups of the data and clusters are dense in some locations, we can still build a better model that more accurately predicts the quality based on the given features.
+
+The second picture depicts a graph that is used to find the optimal number of clusters for the k-means algorithm. In this instance, it can be seen that the elbow occurs at k=3, which is what we used for this analyses. The model depicts a representation of the clusters in a3 dimensional shape. However, there is a lot of overlap between the clusters meaning there was not very distinct boundaries between the cluster assignments. The k-means algorithm is a hard classifier, meaning points have to belong to exactly one clustering. This may be the problem with this data set, as there are many data points with pretty similar traits, yet some yield wines with low ratings while other high. This causes the clusters means to be more similar and less divided based on considering all the features of the wine, which is why PCA was used above.
+
+Furthermore, above the model, the ratings are printed and it can be seen that they are all relatively close to each other, meaning these clusters do not have a very large impact on the dependent variable(rating) that we are measuring. This algorithm was not, however, unsuccesful. We are able to see that these loose boundaries and slightly different ratings give hope that there is still a better way to classify our data and predict the outputs. This brings us to our next section, Decision Trees.
+
 
 
 ### Trees
